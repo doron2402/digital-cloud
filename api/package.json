@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "description": "leads api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Doron Segal",
+  "license": "ISC",
+  "dependencies": {
+    "joi": "~4.6.2",
+    "hapi": "~6.7.1"
+  }
+}
