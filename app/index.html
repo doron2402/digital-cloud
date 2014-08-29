@@ -23,11 +23,17 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
+        <ul ng-controller="TopMenuCtrl" class="nav nav-pills pull-right">
+            <li ng-repeat="navLink in navLinks" ng-class="isActive('{{navLink.link}}')">
+            <a href="#/{{navLink.link}}">{{navLink.title}}</a>
+            </li>
+        </ul>
+        <!--
+            <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/about">About</a></li>
           <li><a ng-href="#">Contact</a></li>
-        </ul>
+      </ul>
+      -->
         <h3 class="text-muted">leads1</h3>
       </div>
 
@@ -76,6 +82,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/topmenu.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

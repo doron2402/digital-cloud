@@ -9,7 +9,10 @@
  */
 angular.module('leads1App')
   .controller('ContactCtrl', function ($scope) {
-      $scope.contactForm = function(contactInfo){
+      $scope.submitContactForm = function(contactInfo){
         console.log(contactInfo);
+      };
+      $scope.reset = function(){
+        $scope.user = {};
       };
   });

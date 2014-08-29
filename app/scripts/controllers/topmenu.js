@@ -9,8 +9,10 @@
  */
 angular.module('leads1App')
   .controller('TopMenuCtrl', function ($scope, $location) {
-      $scopet.isActive = function(link){
+      $scope.isActive = function(link){
         var currentRoute = $location.path().substring(1) || 'home';
-        return page === currentRoute ? 'active' : '';
+        return link === currentRoute ? 'active' : '';
       };
+
+      $scope.navLinks = [{title: 'Home', link: 'home'}, {title: 'About', link: 'about'}, {title: 'Contact', link: 'contact'}];
   });
