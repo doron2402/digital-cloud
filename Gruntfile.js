@@ -6,7 +6,11 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
-
+var CrossDomainSupport = function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  next();
+};
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
@@ -68,14 +72,19 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
-        livereload: 35729
+        hostname: '0.0.0.0',
+        livereload: 35729,
       },
       livereload: {
         options: {
-          open: true,
+          // open: true,
           middleware: function (connect) {
             return [
+              function(req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                res.setHeader('Access-Control-Allow-Methods', '*');
+                return next();
+              },
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
